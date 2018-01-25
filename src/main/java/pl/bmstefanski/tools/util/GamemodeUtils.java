@@ -29,11 +29,11 @@ import org.bukkit.GameMode;
 
 public class GamemodeUtils {
 
-    private static GameMode getGameMode(String string) {
-        for (GameMode mode : GameMode.values()) {
-            if (mode.name().toLowerCase().contains(string.toLowerCase())) {
-                return mode;
-            }
+   private static GameMode getGameMode(String name) {
+        return Arrays.stream(GameMode.values())
+                .filter(gameMode -> GameMode.valueOf(name.toUpperCase())
+                .findAny()
+                .orElse(null);
         }
         return null;
     }
